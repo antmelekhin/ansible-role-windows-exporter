@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Melekhin Anton
+  description: An Ansible role for install, configure and update Windows Exporter.
+
+  license: MIT
+
+  min_ansible_version: '2.7'
+
+  platforms:
+    - name: Windows
+      versions:
+        - '2016'
+        - '2019'
+
+  galaxy_tags:
+    - monitoring
+    - prometheus
+    - windows_exporter
+
+dependencies: []

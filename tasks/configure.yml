@@ -1,0 +1,13 @@
+---
+- name: 'Configure Windows Exporter'
+  win_template:
+    src: 'config.yml.j2'
+    dest: 'C:\Program Files\windows_exporter\config.yml'
+  notify: Restart Windows Exporter
+
+- name: 'Ensure Windows Exporter is running and enabled at boot'
+  win_service:
+    name: windows_exporter
+    path: '"C:\Program Files\windows_exporter\windows_exporter.exe" --config.file="C:\Program Files\windows_exporter\config.yml"'
+    start_mode: auto
+    state: started

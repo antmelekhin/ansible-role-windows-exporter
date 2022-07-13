@@ -1,0 +1,5 @@
+---
+- name: 'Restart Windows Exporter'
+  win_service:
+    name: windows_exporter
+    state: restarted

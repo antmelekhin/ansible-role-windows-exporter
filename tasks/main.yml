@@ -1,0 +1,6 @@
+---
+- name: 'Include tasks for install Windows Exporter'
+  ansible.builtin.import_tasks: 'install.yml'
+
+- name: 'Include tasks for configure Windows Exporter'
+  ansible.builtin.import_tasks: 'configure.yml'

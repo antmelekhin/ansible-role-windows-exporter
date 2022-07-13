@@ -1,0 +1,15 @@
+---
+# See available releases: https://github.com/prometheus-community/windows_exporter/releases
+windows_exporter__version: '0.18.1'
+windows_exporter__architecture: 'amd64'
+windows_exporter__download_url: 'https://github.com/prometheus-community/windows_exporter/releases/download/v{{ windows_exporter__version }}/windows_exporter-{{ windows_exporter__version }}-{{ windows_exporter__architecture }}.msi'
+
+# See available settings flags: https://github.com/prometheus-community/windows_exporter/tree/master#flags
+windows_exporter__listen_address: '0.0.0.0'
+windows_exporter__listen_port: 9182
+windows_exporter__metrics_path: '/metrics'
+windows_exporter__log_level: 'debug'
+
+# See available collector-flags: https://github.com/prometheus-community/windows_exporter#collectors
+windows_exporter__enabled_collectors: '[defaults]'
+windows_exporter__collector: ''
