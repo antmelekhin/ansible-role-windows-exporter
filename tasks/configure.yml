@@ -12,3 +12,16 @@
     start_mode: auto
     state: started
   when: not ansible_check_mode
+
+- name: 'Ensure firewall rule for Windows Exporter is allow'
+  win_firewall_rule:
+    name: 'windows_exporter (HTTP )'
+    description: 'Inbound rule for Windows Exporter'
+    program: 'C:\Program Files\windows_exporter\windows_exporter.exe'
+    localport: '{{ windows_exporter_listen_port }}'
+    action: allow
+    direction: in
+    protocol: tcp
+    profiles: 'domain,private'
+    enabled: true
+    state: present
