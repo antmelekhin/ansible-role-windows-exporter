@@ -3,3 +3,4 @@
   win_service:
     name: windows_exporter
     state: restarted
+  when: not ansible_check_mode

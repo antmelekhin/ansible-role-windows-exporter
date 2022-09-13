@@ -11,3 +11,4 @@
     path: '"C:\Program Files\windows_exporter\windows_exporter.exe" --config.file="C:\Program Files\windows_exporter\config.yml"'
     start_mode: auto
     state: started
+  when: not ansible_check_mode

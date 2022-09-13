@@ -1,10 +1,10 @@
 ---
 {{ ansible_managed | comment }}
 collectors:
-  enabled: "{{ windows_exporter__enabled_collectors }}"
-{% if windows_exporter__collector | length > 0 %}
+  enabled: "{{ windows_exporter_collectors_enabled }}"
+{% if windows_exporter_collector | length > 0 %}
 collector:
-{% for collector in windows_exporter__collector %}
+{% for collector in windows_exporter_collector %}
   {{ collector.name }}:
 {% for key, value in collector.flags.items() %}
     {{ key }}: {{ value }}
@@ -12,10 +12,10 @@ collector:
 {% endfor %}
 {% endif %}
 log:
-  level: {{ windows_exporter__log_level }}
+  level: {{ windows_exporter_log_level }}
 scrape:
   timeout-margin: 0.5
 telemetry:
-  addr: "{{ windows_exporter__listen_address }}:{{ windows_exporter__listen_port }}"
-  path: {{ windows_exporter__metrics_path }}
+  addr: "{{ windows_exporter_listen_address }}:{{ windows_exporter_listen_port }}"
+  path: {{ windows_exporter_metrics_path }}
   max-requests: 5

@@ -3,18 +3,20 @@
   win_command: 'C:\Program Files\windows_exporter\windows_explorer.exe --version'
   failed_when: false
   changed_when: false
-  register: windows_exporter__version_check
+  register: _windows_exporter_version_check
 
 - block:
     - name: 'Download Windows Exporter into temporary location'
       win_get_url:
-        url: '{{ windows_exporter__download_url }}'
+        url: '{{ windows_exporter_download_url }}'
         dest: '{{ ansible_env.TEMP }}\windows_exporter.msi'
+      check_mode: false
 
     - name: 'Install Windows Exporter'
       win_package:
-        path: '{{ansible_env.TEMP}}\windows_exporter.msi'
+        path: '{{ ansible_env.TEMP }}\windows_exporter.msi'
         state: present
+      when: not ansible_check_mode
   when:
-    - windows_exporter__version_check.stdout is not defined or
-      windows_exporter__version not in windows_exporter__version_check.stdout
+    - _windows_exporter_version_check.stdout is not defined or
+      windows_exporter_version not in _windows_exporter_version_check.stdout
