@@ -9,7 +9,9 @@
   win_service:
     name: windows_exporter
     path: '"C:\Program Files\windows_exporter\windows_exporter.exe" --config.file="C:\Program Files\windows_exporter\config.yml"'
-    start_mode: auto
+    dependencies:
+      - 'Winmgmt'
+    start_mode: delayed
     state: started
   when: not ansible_check_mode
 
