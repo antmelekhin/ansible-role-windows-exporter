@@ -1,0 +1,31 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+lint: |
+  set -e
+  yamllint .
+platforms:
+  - name: instance
+    box: 'jborean93/WindowsServer2019'
+    interfaces:
+      - network_name: forwarded_port
+        guest: 9182
+        host: 9182
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      instance:
+        ansible_host: 127.0.0.1
+        ansible_port: 55986
+        ansible_user: vagrant
+        ansible_password: vagrant
+        ansible_connection: winrm
+        ansible_winrm_scheme: https
+        ansible_winrm_transport: ntlm
+        ansible_winrm_server_cert_validation: ignore
+        ansible_become: false
+verifier:
+  name: ansible

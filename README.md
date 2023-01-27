@@ -1,37 +1,37 @@
 Windows Exporter
 ================
 
-Ansible роль для установки, настройки и обновления [Windows Exporter](https://github.com/prometheus-community/windows_exporter).
+An Ansible role for install, configure and update [Windows Exporter](https://github.com/prometheus-community/windows_exporter).
 
-Требования
-----------
+Requirements
+------------
 
-- Поддерживаемая версия Ansible: 2.7 и выше.
-- `pywinrm` для подключения [Ansible через WinRM](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html) (для Windows).
-- Список поддерживаемых платформ описан в файле метаданных роли.
+- Supported version of Ansible: 2.9 and highter.
+- `pywinrm` is a python library for connection Ansible to Windows hosts via [WinRM](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html).
+- List of all supported platforms described in role meta.
 
-Используемые переменные
------------------------
+Role Variables
+--------------
 
-- `windows_exporter_version` Версия Windows Exporter для установки (default: `0.18.1`).
-- `windows_exporter_package_name` Имя пакета.
-- `windows_exporter_download_url` Ссылка на скачивание архива с приложением.
-- `windows_exporter_listen_address` Адрес сервера с метриками (default: `0.0.0.0`).
-- `windows_exporter_listen_port` Порт сервера с метриками (default: `9182`).
-- `windows_exporter_metrics_path` Путь до метрик (default: `metrics`).
-- `windows_exporter_log_level` Уровень логирования экспортера (default: `debug`).
-- `windows_exporter_collectors_enabled` Включенные коллекторы (default: `[defaults]`).
-- `windows_exporter_collector` Настраиваемый фильтр для метрик (default: `''`).
+- `windows_exporter_version` The specific version of Windows Exporter to download (default: `0.18.1`).
+- `windows_exporter_package_name` Windows Exporter package name.
+- `windows_exporter_download_url` URL to download Windows Exporter package.
+- `windows_exporter_listen_address` The IP address to bind to (default: `0.0.0.0`).
+- `windows_exporter_listen_port` The port to bind to (default: `9182`).
+- `windows_exporter_metrics_path` The path at which to serve metrics (default: `metrics`).
+- `windows_exporter_log_level` Windows Exporter logging level (default: `info`).
+- `windows_exporter_collectors_enabled` Comma-separated list of collectors to use (default: `[defaults]`).
+- `windows_exporter_collector` Flags for collectors (default: `''`).
 
-Зависимости
------------
+Dependencies
+------------
 
-Отсутствуют.
+None.
 
-Пример использования
---------------------
+Example Playbook
+----------------
 
-- Настраиваем Windows Exporter, дополнительно к дефолтным коллекторам добавляем коллетор memory и настраиваем сбор метрик коллектора service только для сервиса windows_exporter.
+Install, configure `Windows Exporter` and specify a custom query for service collector.
 
   ```yaml
   ---
@@ -39,7 +39,7 @@ Ansible роль для установки, настройки и обновле
     hosts: windows_exporter
 
     roles:
-      - role: 'ansible-role-windows-exporter'
+      - role: antmelekhin.windows_exporter
         windows_exporter_collectors_enabled: '[defaults],memory'
         windows_exporter_collector:
           - name: service
@@ -47,12 +47,12 @@ Ansible роль для установки, настройки и обновле
               services-where: Name='windows_exporter'
   ```
 
-Лицензия
---------
+License
+-------
 
 MIT
 
-Информация об авторе
---------------------
+Author Information
+------------------
 
-Мелехин Антон
+Melekhin Anton.
