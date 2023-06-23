@@ -1,0 +1,25 @@
+---
+name: 'Check for a new upstream version'
+on:
+  schedule:
+    - cron: '59 23 * * 1'
+  workflow_dispatch:
+
+env:
+  SOFTWARE: 'windows_exporter'
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: 'Checkout the codebase'
+        uses: actions/checkout@v3
+
+      - name: 'Update version'
+        run: .github/scripts/update-version.sh $SOFTWARE
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
