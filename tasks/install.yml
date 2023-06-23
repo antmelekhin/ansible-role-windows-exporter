@@ -5,7 +5,11 @@
   changed_when: false
   register: _windows_exporter_version_check
 
-- block:
+- name: 'Download and unarchive Windows Exporter'
+  when:
+    - _windows_exporter_version_check.stdout is not defined or
+      windows_exporter_version not in _windows_exporter_version_check.stdout
+  block:
     - name: 'Download Windows Exporter into temporary location'
       win_get_url:
         url: '{{ windows_exporter_download_url }}'
@@ -17,6 +21,3 @@
         path: '{{ ansible_env.TEMP }}\windows_exporter.msi'
         state: present
       when: not ansible_check_mode
-  when:
-    - _windows_exporter_version_check.stdout is not defined or
-      windows_exporter_version not in _windows_exporter_version_check.stdout
