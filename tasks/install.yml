@@ -20,12 +20,12 @@
   block:
     - name: 'Download Windows Exporter into temporary location'
       win_get_url:
-        url: '{{ windows_exporter_download_url }}'
-        dest: '{{ ansible_env.TEMP }}\windows_exporter.msi'
+        url: '{{ windows_exporter_download_url }}/{{ windows_exporter_package_name }}'
+        dest: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
       check_mode: false
 
     - name: 'Install Windows Exporter'
       win_package:
-        path: '{{ ansible_env.TEMP }}\windows_exporter.msi'
+        path: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
         state: present
       when: not ansible_check_mode
