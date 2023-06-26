@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.0.1...v1.1.0) (2023-06-26)
+
+
+### Code Refactoring
+
+* update variables ([aad8813](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/aad881338c50f10f48d93dfa486a5f9eeef9b0f8))
+
+
+### Features
+
+* add configuration for tls and basic auth ([bc07a8a](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/bc07a8af6cafef14f35a09cc9b00f8ec53df08e8))
+
 ## [1.0.1](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.0.0...v1.0.1) (2023-06-23)
 
 
