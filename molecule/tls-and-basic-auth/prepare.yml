@@ -1,0 +1,27 @@
+---
+- name: 'Prepare'
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: 'Install dependencies for basic auth and certificate generation'
+      ansible.builtin.pip:
+        name:
+          - 'cryptography'
+          - 'passlib[bcrypt]'
+
+    - name: 'Create private key (RSA, 4096 bits)'
+      openssl_privatekey:
+        path: '/tmp/certificate.key'
+
+    - name: 'Generate an OpenSSL Certificate Signing Request'
+      openssl_csr:
+        path: '/tmp/certificate.csr'
+        privatekey_path: '/tmp/certificate.key'
+
+    - name: 'Generate a Self Signed OpenSSL certificate'
+      openssl_certificate:
+        path: '/tmp/certificate.cert'
+        privatekey_path: '/tmp/certificate.key'
+        csr_path: '/tmp/certificate.csr'
+        provider: selfsigned

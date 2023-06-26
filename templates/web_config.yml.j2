@@ -1,0 +1,19 @@
+---
+{{ ansible_managed | comment }}
+
+{% if windows_exporter_tls_server_config | length %}
+tls_server_config:
+{{ windows_exporter_tls_server_config | to_nice_yaml | indent(2, true) }}
+{% endif %}
+
+{% if windows_exporter_http_server_config | length %}
+http_server_config:
+{{ windows_exporter_http_server_config | to_nice_yaml | indent(2, true) }}
+{% endif %}
+
+{% if windows_exporter_basic_auth_users | length %}
+basic_auth_users:
+{% for k, v in windows_exporter_basic_auth_users.items() %}
+  {{ k }}: {{ v | string | ansible.builtin.password_hash('bcrypt', ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890' | shuffle(seed=inventory_hostname) | join)[:22], rounds=9) }}
+{% endfor %}
+{% endif %}

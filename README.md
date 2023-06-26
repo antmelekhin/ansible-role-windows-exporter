@@ -25,6 +25,9 @@ Role Variables
 - `windows_exporter_log_level` Windows Exporter logging level (default: `info`).
 - `windows_exporter_collectors_enabled` Comma-separated list of collectors to use (default: `[defaults]`).
 - `windows_exporter_collector` Flags for collectors (default: `''`).
+- `windows_exporter_tls_server_config` Certificate and key files for server to use to authenticate to client.
+- `windows_exporter_http_server_config` Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS.
+- `windows_exporter_basic_auth_users` Users and password for basic authentication. Passwords are automatically hashed with bcrypt.
 
 Dependencies
 ------------

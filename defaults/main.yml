@@ -13,3 +13,8 @@ windows_exporter_log_level: 'info'
 # See available collector-flags: https://github.com/prometheus-community/windows_exporter#collectors
 windows_exporter_collectors_enabled: '[defaults]'
 windows_exporter_collector: ''
+
+# Windows Exporter TLS and basic authentication settings: https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md
+windows_exporter_tls_server_config: {}
+windows_exporter_http_server_config: {}
+windows_exporter_basic_auth_users: {}
