@@ -5,23 +5,27 @@
     dest: 'C:\Program Files\windows_exporter\config.yml'
   notify: Restart Windows Exporter
 
-- name: 'Configure web config file for Windows Exporter'
-  win_template:
-    src: 'web_config.yml.j2'
-    dest: 'C:\Program Files\windows_exporter\web_config.yml'
-  notify: Restart Windows Exporter
+- name: 'Set Windows Exporter startup arguments'
+  ansible.builtin.set_fact:
+    _windows_exporter_arguments: >-
+      --config.file="C:\Program Files\windows_exporter\config.yml"
+
+- name: 'Configure web config file and set startup arguments for Windows Exporter'
   when:
     - windows_exporter_tls_server_config | length or
       windows_exporter_http_server_config | length or
       windows_exporter_basic_auth_users | length
+  block:
+    - name: 'Configure web config file for Windows Exporter'
+      win_template:
+        src: 'web_config.yml.j2'
+        dest: 'C:\Program Files\windows_exporter\web_config.yml'
+      notify: Restart Windows Exporter
 
-- name: 'Set arguments'
-  ansible.builtin.set_fact:
-    _windows_exporter_arguments: >-
-      --config.file="C:\Program Files\windows_exporter\config.yml"
-      {%- if windows_exporter_tls_server_config | length or windows_exporter_http_server_config | length or windows_exporter_basic_auth_users | length %}
-      --web.config.file "C:\Program Files\windows_exporter\web_config.yml"
-      {%- endif %}
+    - name: 'Set Windows Exporter startup arguments if web config file exists'
+      ansible.builtin.set_fact:
+        _windows_exporter_arguments: >-
+          --config.file="C:\Program Files\windows_exporter\config.yml" --web.config.file "C:\Program Files\windows_exporter\web_config.yml"
 
 - name: 'Ensure Windows Exporter is running and enabled at boot'
   win_service:
