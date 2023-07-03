@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.2](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.1.1...v1.1.2) (2023-07-03)
+
+
+### Fixes
+
+* update `_windows_exporter_arguments` variable ([3cfbf77](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/3cfbf778a1ed15e0ab76f7823e82ffe981a12f01))
+
+
+### Styles
+
+* add quotes in notify name ([eb4fa27](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/eb4fa274c372c6086f673ee5fa903d2af40a2fba))
+
 ## [1.1.1](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.1.0...v1.1.1) (2023-07-01)
 
 
