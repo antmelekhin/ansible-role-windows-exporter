@@ -3,7 +3,7 @@
   win_template:
     src: 'config.yml.j2'
     dest: 'C:\Program Files\windows_exporter\config.yml'
-  notify: Restart Windows Exporter
+  notify: 'Restart Windows Exporter'
 
 - name: 'Set Windows Exporter startup arguments'
   ansible.builtin.set_fact:
@@ -20,7 +20,7 @@
       win_template:
         src: 'web_config.yml.j2'
         dest: 'C:\Program Files\windows_exporter\web_config.yml'
-      notify: Restart Windows Exporter
+      notify: 'Restart Windows Exporter'
 
     - name: 'Set Windows Exporter startup arguments if web config file exists'
       ansible.builtin.set_fact:
