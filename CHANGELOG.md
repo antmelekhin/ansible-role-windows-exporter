@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.1.3...v1.2.0) (2023-08-22)
+
+
+### Features
+
+* add missing config values ([cb1c15e](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/cb1c15e2bb62b93afb359d7139ebb0714e040f8b))
+
 ## [1.1.3](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.1.2...v1.1.3) (2023-07-28)
 
 
