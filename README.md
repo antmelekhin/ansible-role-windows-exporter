@@ -22,7 +22,30 @@ Role Variables
 - `windows_exporter_listen_address` The IP address to bind to (default: `0.0.0.0`).
 - `windows_exporter_listen_port` The port to bind to (default: `9182`).
 - `windows_exporter_metrics_path` The path at which to serve metrics (default: `metrics`).
-- `windows_exporter_log_level` Windows Exporter logging level (default: `info`).
+- `windows_exporter_log_file` Output file of log message.
+
+  Available values:
+  - `stdout`
+  - `stderr`
+  - `eventlog` (default)
+  - Path to log file. Example: `C:\Program Files\windows_exporter\exporter.log`.
+
+- `windows_exporter_log_format` Output format of log messages.
+
+  Available values:
+  - `logfmt` (default)
+  - `json`
+
+- `windows_exporter_log_level` Windows Exporter logging level.
+
+  Available values:
+  - `debug`
+  - `info` (default)
+  - `warn`
+  - `error`
+
+- `windows_exporter_timeout_margin` Seconds to subtract from the timeout allowed by the client (default: `0.5`).
+- `windows_exporter_max_requests` Maximum number of concurrent requests. 0 to disable (default: `5`).
 - `windows_exporter_collectors_enabled` Comma-separated list of collectors to use (default: `[defaults]`).
 - `windows_exporter_collector` Flags for collectors (default: `''`).
 - `windows_exporter_tls_server_config` Certificate and key files for server to use to authenticate to client.

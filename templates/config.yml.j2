@@ -12,10 +12,12 @@ collector:
 {% endfor %}
 {% endif %}
 log:
+  file: {{ windows_exporter_log_file }}
+  format: {{ windows_exporter_log_format }}
   level: {{ windows_exporter_log_level }}
 scrape:
-  timeout-margin: 0.5
+  timeout-margin: {{ windows_exporter_timeout_margin }}
 telemetry:
   addr: "{{ windows_exporter_listen_address }}:{{ windows_exporter_listen_port }}"
   path: {{ windows_exporter_metrics_path }}
-  max-requests: 5
+  max-requests: {{ windows_exporter_max_requests }}
