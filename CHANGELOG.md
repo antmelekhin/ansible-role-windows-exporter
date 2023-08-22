@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.0...v1.2.1) (2023-08-22)
+
+
+### Fixes
+
+* add fqcn for all modules ([b49a59f](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/b49a59f2730b0cefa9a7f550a3c321dcb5efffaf))
+
 ## [1.2.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.1.3...v1.2.0) (2023-08-22)
 
 
