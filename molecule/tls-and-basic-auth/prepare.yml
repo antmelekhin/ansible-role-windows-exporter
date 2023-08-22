@@ -11,16 +11,16 @@
           - 'passlib[bcrypt]'
 
     - name: 'Create private key (RSA, 4096 bits)'
-      openssl_privatekey:
+      community.crypto.openssl_privatekey:
         path: '/tmp/certificate.key'
 
     - name: 'Generate an OpenSSL Certificate Signing Request'
-      openssl_csr:
+      community.crypto.openssl_csr:
         path: '/tmp/certificate.csr'
         privatekey_path: '/tmp/certificate.key'
 
     - name: 'Generate a Self Signed OpenSSL certificate'
-      openssl_certificate:
+      community.crypto.x509_certificate:
         path: '/tmp/certificate.cert'
         privatekey_path: '/tmp/certificate.key'
         csr_path: '/tmp/certificate.csr'

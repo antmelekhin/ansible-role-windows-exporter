@@ -1,6 +1,6 @@
 ---
 - name: 'Configure Windows Exporter'
-  win_template:
+  ansible.windows.win_template:
     src: 'config.yml.j2'
     dest: 'C:\Program Files\windows_exporter\config.yml'
   notify: 'Restart Windows Exporter'
@@ -17,7 +17,7 @@
       windows_exporter_basic_auth_users | length
   block:
     - name: 'Configure web config file for Windows Exporter'
-      win_template:
+      ansible.windows.win_template:
         src: 'web_config.yml.j2'
         dest: 'C:\Program Files\windows_exporter\web_config.yml'
       notify: 'Restart Windows Exporter'
@@ -28,7 +28,7 @@
           --config.file="C:\Program Files\windows_exporter\config.yml" --web.config.file "C:\Program Files\windows_exporter\web_config.yml"
 
 - name: 'Ensure Windows Exporter is running and enabled at boot'
-  win_service:
+  ansible.windows.win_service:
     name: windows_exporter
     path: '"C:\Program Files\windows_exporter\windows_exporter.exe" {{ _windows_exporter_arguments }}'
     dependencies:
@@ -38,7 +38,7 @@
   when: not ansible_check_mode
 
 - name: 'Ensure firewall rule for Windows Exporter is allow'
-  win_firewall_rule:
+  community.windows.win_firewall_rule:
     name: 'windows_exporter (HTTP )'
     description: 'Inbound rule for Windows Exporter'
     program: 'C:\Program Files\windows_exporter\windows_exporter.exe'

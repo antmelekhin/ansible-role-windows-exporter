@@ -5,7 +5,7 @@
 
   tasks:
     - name: 'Check if a windows_exporter service is installed'
-      win_service:
+      ansible.windows.win_service:
         name: windows_exporter
       register: _windows_exporter_service
 

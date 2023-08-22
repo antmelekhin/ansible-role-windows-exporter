@@ -10,7 +10,7 @@
 
   pre_tasks:
     - name: 'Create certificate directories'
-      ansible.builtin.win_file:
+      ansible.windows.win_file:
         path: '{{ windows_exporter_tls_server_config.cert_file | win_dirname }}'
         state: directory
 
