@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.1...v1.2.2) (2023-09-23)
+
+
+### Fixes
+
+* replaced listen-address option from telemetry to web ([#5](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/5)) ([24d6423](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/24d6423777089bcd542727af33a7c75708f4677e))
+
 ## [1.2.1](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.0...v1.2.1) (2023-08-22)
 
 
