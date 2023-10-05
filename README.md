@@ -16,9 +16,9 @@ Requirements
 Role Variables
 --------------
 
-- `windows_exporter_version` The specific version of Windows Exporter to download (default: `0.23.1`).
-- `windows_exporter_package_name` Windows Exporter package name (default: `windows_exporter-0.23.1-amd64.msi`).
-- `windows_exporter_download_url` URL to download Windows Exporter package (default: `https://github.com/prometheus-community/windows_exporter/releases/download/v0.23.1`).
+- `windows_exporter_version` The specific version of Windows Exporter to download (default: `0.24.0`).
+- `windows_exporter_package_name` Windows Exporter package name (default: `windows_exporter-0.24.0-amd64.msi`).
+- `windows_exporter_download_url` URL to download Windows Exporter package (default: `https://github.com/prometheus-community/windows_exporter/releases/download/v0.24.0`).
 - `windows_exporter_listen_address` The IP address to bind to (default: `0.0.0.0`).
 - `windows_exporter_listen_port` The port to bind to (default: `9182`).
 - `windows_exporter_metrics_path` The path at which to serve metrics (default: `metrics`).
