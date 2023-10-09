@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.4](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.3...v1.2.4) (2023-10-09)
+
+
+### Fixes
+
+* correct `win_stat` module fqcn ([#9](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/9)) ([1b2d394](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/1b2d394b524bdd4ba00a32ec6dde7ad31971fc3d))
+
+
+### Tests
+
+* **fix:** set `role_name_check` as skip_list and add this key in `tls-and-basic-auth` scenario ([#8](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/8)) ([ade622a](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/ade622a0dee38a939b2460852502daa27cb12898))
+
 ## [1.2.3](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.2...v1.2.3) (2023-10-05)
 
 
