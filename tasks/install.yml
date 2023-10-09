@@ -1,6 +1,6 @@
 ---
 - name: 'Check if Windows Exporter is installed'
-  ansible.builtin.win_stat:
+  ansible.windows.win_stat:
     path: 'C:\Program Files\windows_exporter\windows_exporter.exe'
   register: _windows_exporter_is_installed
 
