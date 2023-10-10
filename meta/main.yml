@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Melekhin Anton
+  author: antmelekhin
   role_name: windows_exporter
   description: An Ansible role for install, configure and update Windows Exporter.
 
