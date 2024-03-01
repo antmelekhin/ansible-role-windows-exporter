@@ -23,6 +23,8 @@ Role Variables
 - `windows_exporter_listen_port` The port to bind to (default: `9182`).
 - `windows_exporter_metrics_path` The path at which to serve metrics (default: `metrics`).
 - `windows_exporter_log_file` Output file of log message.
+- `windows_exporter_skip_download` Skips the download - Ensure package path matches `windows_exporter_download_path` variable (default: false)
+- `windows_exporter_download_path` Path where the windows_Exporter package is downloaded to (default: {{ ansible_env.TEMP }}\{{ windows_exporter_package_name }})
 
   Available values:
   - `stdout`
