@@ -21,11 +21,18 @@
     - name: 'Download Windows Exporter into temporary location'
       ansible.windows.win_get_url:
         url: '{{ windows_exporter_download_url }}/{{ windows_exporter_package_name }}'
-        dest: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
+        dest: '{{ windows_exporter_download_path }}'
       check_mode: false
-
+      when: not windows_exporter_skip_download
+    
+    - name: 'Ensure windows_exporter package is present'
+      ansible.windows.win_stat:
+        path: '{{ windows_exporter_download_path }}'
+      register: stat_exporter_package
+      failed_when: not stat_exporter_package.stat.exists
+          
     - name: 'Install Windows Exporter'
       ansible.windows.win_package:
-        path: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
+        path: '{{ windows_exporter_download_path }}'
         state: present
       when: not ansible_check_mode
