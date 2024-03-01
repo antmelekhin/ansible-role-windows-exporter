@@ -1,6 +1,6 @@
 ---
 # See available releases: https://github.com/prometheus-community/windows_exporter/releases
-windows_exporter_version: '0.24.0'
+windows_exporter_version: '0.25.1'
 windows_exporter_package_name: 'windows_exporter-{{ windows_exporter_version }}-{{ _windows_exporter_arch }}.msi'
 windows_exporter_download_url: 'https://github.com/prometheus-community/windows_exporter/releases/download/v{{ windows_exporter_version }}'
 
