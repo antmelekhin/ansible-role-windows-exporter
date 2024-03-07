@@ -2,7 +2,7 @@
 galaxy_info:
   author: antmelekhin
   role_name: windows_exporter
-  description: An Ansible role for install, configure and update Windows Exporter.
+  description: An Ansible role to install, configure and update Windows Exporter.
 
   license: MIT
 
