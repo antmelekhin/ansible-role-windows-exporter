@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.7](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.6...v1.2.7) (2024-03-08)
+
+
+### Fixes
+
+* delegate to localhost download binary ([#14](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/14)) ([2aa18f7](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/2aa18f71ea8ae970ac1570af9137aef1a41ecddb))
+
 ## [1.2.6](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.5...v1.2.6) (2024-03-08)
 
 
