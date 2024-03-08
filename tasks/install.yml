@@ -10,7 +10,7 @@
   changed_when: false
   register: __windows_exporter_version_check
 
-- name: 'Download and unarchive Windows Exporter'
+- name: 'Download and install Windows Exporter'
   when:
     - not __windows_exporter_is_installed.stat.exists or
       ( __windows_exporter_version_check.stderr_lines | length and
@@ -18,9 +18,17 @@
       ( __windows_exporter_version_check.stdout_lines | length and
       windows_exporter_version not in __windows_exporter_version_check.stdout_lines[0].split(" ")[2] )
   block:
-    - name: 'Download Windows Exporter into temporary location'
-      ansible.windows.win_get_url:
+    - name: 'Download Windows Exporter binary to local folder'
+      ansible.builtin.get_url:
         url: '{{ windows_exporter_download_url }}/{{ windows_exporter_package_name }}'
+        dest: '/tmp/{{ windows_exporter_package_name }}'
+        mode: 0644
+      delegate_to: localhost
+      check_mode: false
+
+    - name: 'Copy Windows Exporter binary into place'
+      ansible.windows.win_copy:
+        src: '/tmp/{{ windows_exporter_package_name }}'
         dest: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
       check_mode: false
 
