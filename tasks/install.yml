@@ -2,21 +2,21 @@
 - name: 'Check if Windows Exporter is installed'
   ansible.windows.win_stat:
     path: 'C:\Program Files\windows_exporter\windows_exporter.exe'
-  register: _windows_exporter_is_installed
+  register: __windows_exporter_is_installed
 
 - name: 'Check current Windows Exporter version'
   ansible.windows.win_command: '"C:\Program Files\windows_exporter\windows_exporter.exe" --version'
   failed_when: false
   changed_when: false
-  register: _windows_exporter_version_check
+  register: __windows_exporter_version_check
 
 - name: 'Download and unarchive Windows Exporter'
   when:
-    - not _windows_exporter_is_installed.stat.exists or
-      ( _windows_exporter_version_check.stderr_lines | length > 0 and
-      windows_exporter_version not in _windows_exporter_version_check.stderr_lines[0].split(" ")[2] ) or
-      ( _windows_exporter_version_check.stdout_lines | length > 0 and
-      windows_exporter_version not in _windows_exporter_version_check.stdout_lines[0].split(" ")[2] )
+    - not __windows_exporter_is_installed.stat.exists or
+      ( __windows_exporter_version_check.stderr_lines | length and
+      windows_exporter_version not in __windows_exporter_version_check.stderr_lines[0].split(" ")[2] ) or
+      ( __windows_exporter_version_check.stdout_lines | length and
+      windows_exporter_version not in __windows_exporter_version_check.stdout_lines[0].split(" ")[2] )
   block:
     - name: 'Download Windows Exporter into temporary location'
       ansible.windows.win_get_url:

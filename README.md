@@ -1,7 +1,7 @@
 Windows Exporter
 ================
 
-An Ansible role for install, configure and update [Windows Exporter](https://github.com/prometheus-community/windows_exporter).
+An Ansible role to install, configure and update [Windows Exporter](https://github.com/prometheus-community/windows_exporter).
 
 Requirements
 ------------

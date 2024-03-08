@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.2.5](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.4...v1.2.5) (2024-03-08)
+
+
+### Continuous Integration
+
+* fix publish workflow ([049d24d](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/049d24d3d32f0d1702a5d2792889679e4aad2d52))
+
+
+### Fixes
+
+* **version:** windows_exporter updated to `0.25.0` release ([#11](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/11)) ([fdf5c61](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/fdf5c61df5366430fd1844adc25a08b7b80f96c6))
+
+
+### Styles
+
+* update repo description ([38940e2](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/38940e2c0f880d2da65ee62ef4b56c31053f571f))
+* update task names ([d8a6e60](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/d8a6e604f86f16d86bd66de3058ff5225b50a017))
+* use double underlined register variable ([0eb3938](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/0eb3938357802a8328b4a9572a40c952f788e013))
+
 ## [1.2.4](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.3...v1.2.4) (2023-10-09)
 
 
