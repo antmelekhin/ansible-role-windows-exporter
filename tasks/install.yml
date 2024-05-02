@@ -35,5 +35,5 @@
     - name: 'Install Windows Exporter'
       ansible.windows.win_package:
         path: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
-        state: present
+        state: 'present'
       when: not ansible_check_mode

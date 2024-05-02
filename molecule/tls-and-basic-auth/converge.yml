@@ -6,13 +6,13 @@
       cert_file: 'C:\Program Files\windows_exporter\ssl\windows_exporter.cert'
       key_file: 'C:\Program Files\windows_exporter\ssl\windows_exporter.key'
     windows_exporter_basic_auth_users:
-      newuser1: newpassword1
+      newuser1: 'newpassword1'
 
   pre_tasks:
     - name: 'Create certificate directories'
       ansible.windows.win_file:
         path: '{{ windows_exporter_tls_server_config.cert_file | win_dirname }}'
-        state: directory
+        state: 'directory'
 
     - name: 'Copy certificate and key'
       ansible.builtin.copy:

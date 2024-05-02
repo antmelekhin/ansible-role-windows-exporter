@@ -24,4 +24,4 @@
         path: '/tmp/certificate.cert'
         privatekey_path: '/tmp/certificate.key'
         csr_path: '/tmp/certificate.csr'
-        provider: selfsigned
+        provider: 'selfsigned'
