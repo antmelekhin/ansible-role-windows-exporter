@@ -7,17 +7,17 @@
     - name: 'Check if a windows_exporter service is installed'
       ansible.windows.win_service:
         name: 'windows_exporter'
-      register: _windows_exporter_service
+      register: __windows_exporter_service
 
     - name: 'Assert that windows_exporter service is enabled and running'
       ansible.builtin.assert:
-        that: _windows_exporter_service.state == 'running'
+        that: "'running' in __windows_exporter_service.state"
 
     - name: 'Verify windows_exporter is responding to requests'
       ansible.builtin.uri:
         url: 'http://{{ ansible_host }}:9182/metrics'
       delegate_to: localhost
-      register: _result
-      until: _result.status == 200
+      register: __result
+      until: __result.status == 200
       retries: 120
       delay: 5
