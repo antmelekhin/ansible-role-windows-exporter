@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.2.8](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.7...v1.2.8) (2024-05-02)
+
+
+### Continuous Integration
+
+* add semantic version validation ([7c20d92](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/7c20d920027714f85b33aea9d4f2f1ac3f49fbc0))
+* update workflows and release rules ([#15](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/15)) ([da4424e](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/da4424e76a831f2d2fa78348bbdc0c91f0464e7f))
+
+
+### Documentation
+
+* **README:** fixed examples view for Ansible Galaxy ([d69eaf6](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/d69eaf67d0d95fefea375b5a0821aac6f016cf9d))
+
+
+### Styles
+
+* add newline to end of file ([1ec0aa8](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/1ec0aa8e8aad0cdbb3767ca009cdbca734b9d30a))
+* quote strings and use double underline register variables ([#16](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/16)) ([732e0f3](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/732e0f32f82b6fb21ee2f938cb337690cbc16fc7))
+* trim trailing whitespace ([a7cb346](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/a7cb3462913339995eb5bb26c897142a1066d5d5))
+
+
+### Tests
+
+* rm lint from molecule ([774414e](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/774414eb84ef70c07fdd6204dac14a8a1f300661))
+
 ## [1.2.7](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.6...v1.2.7) (2024-03-08)
 
 
