@@ -5,10 +5,6 @@ dependency:
   enabled: true
 driver:
   name: vagrant
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
 platforms:
   - name: instance
     box: 'jborean93/WindowsServer2019'
