@@ -29,12 +29,12 @@
 
 - name: 'Ensure Windows Exporter is running and enabled at boot'
   ansible.windows.win_service:
-    name: windows_exporter
+    name: 'windows_exporter'
     path: '"C:\Program Files\windows_exporter\windows_exporter.exe" {{ __windows_exporter_arguments }}'
     dependencies:
       - 'Winmgmt'
-    start_mode: delayed
-    state: started
+    start_mode: 'delayed'
+    state: 'started'
   when: not ansible_check_mode
 
 - name: 'Ensure firewall rule for Windows Exporter is allow'
@@ -43,9 +43,9 @@
     description: 'Inbound rule for Windows Exporter'
     program: 'C:\Program Files\windows_exporter\windows_exporter.exe'
     localport: '{{ windows_exporter_listen_port }}'
-    action: allow
-    direction: in
-    protocol: tcp
+    action: 'allow'
+    direction: 'in'
+    protocol: 'tcp'
     profiles: 'domain,private,public'
     enabled: true
-    state: present
+    state: 'present'
