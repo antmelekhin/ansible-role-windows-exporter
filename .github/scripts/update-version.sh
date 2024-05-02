@@ -20,6 +20,11 @@ SOFTWARE="$1"
 URL="https://api.github.com/repos/prometheus-community/${SOFTWARE}/releases/latest"
 LATEST_VERSION="$(curl --silent $URL | jq '.tag_name' | tr -d '"v')"
 
+# Validate latest version
+if ! [[ $LATEST_VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] ; then
+   echo "error: ${LATEST_VERSION} is not a valid Semantic Version" >&2; exit 0
+fi
+
 # Compare current and latest versions
 if [[ $CURRENT_VERSION == $LATEST_VERSION ]]; then
     echo -e "${GREEN}Newest version is used.${NO_COLOR}"
