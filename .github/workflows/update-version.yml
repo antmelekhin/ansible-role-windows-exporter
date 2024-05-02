@@ -10,13 +10,14 @@ env:
 
 jobs:
   update-version:
+    name: 'Update version'
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
     steps:
       - name: 'Checkout the codebase'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 'Update version'
         run: .github/scripts/update-version.sh $SOFTWARE
