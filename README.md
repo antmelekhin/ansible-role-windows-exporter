@@ -62,19 +62,19 @@ Example Playbook
 
 Install, configure `Windows Exporter` and specify a custom query for service collector.
 
-  ```yaml
-  ---
-  - name: 'Setup Windows Exporter'
-    hosts: windows_exporter
+```yaml
+---
+- name: 'Setup Windows Exporter'
+  hosts: windows_exporter
 
-    roles:
-      - role: antmelekhin.windows_exporter
-        windows_exporter_collectors_enabled: '[defaults],memory'
-        windows_exporter_collector:
-          - name: service
-            flags:
-              services-where: Name='windows_exporter'
-  ```
+  roles:
+    - role: antmelekhin.windows_exporter
+      windows_exporter_collectors_enabled: '[defaults],memory'
+      windows_exporter_collector:
+        - name: service
+          flags:
+            services-where: Name='windows_exporter'
+```
 
 License
 -------
