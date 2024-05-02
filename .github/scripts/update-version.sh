@@ -46,7 +46,7 @@ if [ "${REMOTE_BRANCH}" == null ] ; then
     # Push new version
     git add defaults/main.yml README.md
     git commit --signoff -m "${UPDATE_VERSION_COMMIT}"
-    
+
     echo -e "${GREEN}Pushing to ${UPDATE_VERSION_BRANCH} branch.${NO_COLOR}"
     if ! git push "https://${GITHUB_TOKEN}:@github.com/${REPO_NAME}" --set-upstream "${UPDATE_VERSION_BRANCH}"; then
         echo -e "${RED}Branch push failed.${NO_COLOR}"
