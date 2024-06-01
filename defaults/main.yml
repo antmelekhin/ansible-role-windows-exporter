@@ -3,6 +3,7 @@
 windows_exporter_version: '0.25.1'
 windows_exporter_package_name: 'windows_exporter-{{ windows_exporter_version }}-{{ _windows_exporter_arch }}.msi'
 windows_exporter_download_url: 'https://github.com/prometheus-community/windows_exporter/releases/download/v{{ windows_exporter_version }}'
+windows_exporter_download_path: '/tmp'
 
 # See available settings flags: https://github.com/prometheus-community/windows_exporter/tree/master#flags
 windows_exporter_listen_address: '0.0.0.0'
@@ -18,7 +19,7 @@ windows_exporter_max_requests: 5
 windows_exporter_collectors_enabled: '[defaults]'
 windows_exporter_collector: ''
 
-# Windows Exporter TLS and basic authentication settings: https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md
+# The Windows Exporter TLS and basic authentication settings: https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md
 windows_exporter_tls_server_config: {}
 windows_exporter_http_server_config: {}
 windows_exporter_basic_auth_users: {}

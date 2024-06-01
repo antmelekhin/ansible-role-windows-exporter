@@ -22,14 +22,14 @@
     - name: 'Download the Windows Exporter package to a local folder'
       ansible.builtin.get_url:
         url: '{{ windows_exporter_download_url }}/{{ windows_exporter_package_name }}'
-        dest: '/tmp/{{ windows_exporter_package_name }}'
+        dest: '{{ windows_exporter_download_path }}/{{ windows_exporter_package_name }}'
         mode: 0644
       delegate_to: localhost
       check_mode: false
 
     - name: 'Copy the Windows Exporter package into a place'
       ansible.windows.win_copy:
-        src: '/tmp/{{ windows_exporter_package_name }}'
+        src: '{{ windows_exporter_download_path }}/{{ windows_exporter_package_name }}'
         dest: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
       check_mode: false
 
