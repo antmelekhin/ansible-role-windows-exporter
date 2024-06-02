@@ -18,13 +18,13 @@ log:
 {% endif %}
   level: {{ windows_exporter_log_level }}
 scrape:
-  timeout-margin: {{ windows_exporter_timeout_margin }}
+  timeout-margin: {{ windows_exporter_scrape_timeout_margin }}
 telemetry:
-  path: {{ windows_exporter_metrics_path }}
-  max-requests: {{ windows_exporter_max_requests }}
+  path: {{ windows_exporter_telemetry_path }}
+  max-requests: {{ windows_exporter_telemetry_max_requests }}
 {% if windows_exporter_version is version('0.21.0', '<') %}
-  addr: "{{ windows_exporter_listen_address }}:{{ windows_exporter_listen_port }}"
+  addr: "{{ windows_exporter_web_listen_address }}:{{ windows_exporter_web_listen_port }}"
 {% else %}
 web:
-  listen-address: "{{ windows_exporter_listen_address }}:{{ windows_exporter_listen_port }}"
+  listen-address: "{{ windows_exporter_web_listen_address }}:{{ windows_exporter_web_listen_port }}"
 {% endif %}
