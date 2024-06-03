@@ -3,26 +3,25 @@ name: 'Release'
 on:
   workflow_run:
     workflows: ['Molecule']
-    types: [completed]
-    branches:
-      - main
+    types: ['completed']
+    branches: ['main']
 
 jobs:
   release:
     name: 'Release'
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-latest'
     if: ${{ github.repository_owner == 'antmelekhin' && github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: 'Checkout the codebase'
-        uses: actions/checkout@v4
+        uses: 'actions/checkout@v4'
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: 'Semantic Release'
-        uses: cycjimmy/semantic-release-action@v4
+        uses: 'cycjimmy/semantic-release-action@v4'
         with:
-          semantic_version: 23.0.8
+          semantic_version: '23.0.8'
           extra_plugins: |
             @semantic-release/git@10.0.1
             @semantic-release/changelog@6.0.3
