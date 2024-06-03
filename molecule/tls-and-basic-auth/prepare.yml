@@ -4,22 +4,22 @@
   gather_facts: false
 
   tasks:
-    - name: 'Install dependencies for basic auth and certificate generation'
+    - name: 'Install the dependencies for basic authentication and certificate generation'
       ansible.builtin.pip:
         name:
           - 'cryptography'
           - 'passlib[bcrypt]'
 
-    - name: 'Create private key (RSA, 4096 bits)'
+    - name: 'Create a private key (RSA, 4096 bits)'
       community.crypto.openssl_privatekey:
         path: '/tmp/certificate.key'
 
-    - name: 'Generate an OpenSSL Certificate Signing Request'
+    - name: 'Generate an OpenSSL certificate signing request'
       community.crypto.openssl_csr:
         path: '/tmp/certificate.csr'
         privatekey_path: '/tmp/certificate.key'
 
-    - name: 'Generate a Self Signed OpenSSL certificate'
+    - name: 'Generate a self-signed OpenSSL certificate'
       community.crypto.x509_certificate:
         path: '/tmp/certificate.cert'
         privatekey_path: '/tmp/certificate.key'
