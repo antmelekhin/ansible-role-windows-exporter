@@ -1,7 +1,18 @@
 Windows Exporter
 ================
 
-An Ansible role to install, configure and update [Windows Exporter](https://github.com/prometheus-community/windows_exporter).
+An Ansible role to install, configure and update the [Windows Exporter](https://github.com/prometheus-community/windows_exporter).
+
+Update to 2.x
+-------------
+
+Since the 2.0.0 version of the role, some variables have changed. You will need to update them in your playbooks.
+
+- `windows_exporter_listen_address` to `windows_exporter_web_listen_address`
+- `windows_exporter_listen_port` to `windows_exporter_web_listen_port`
+- `windows_exporter_metrics_path` to `windows_exporter_telemetry_path`
+- `windows_exporter_timeout_margin` to `windows_exporter_scrape_timeout_margin`
+- `windows_exporter_max_requests` to `windows_exporter_telemetry_max_requests`
 
 Requirements
 ------------
