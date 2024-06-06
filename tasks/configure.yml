@@ -42,7 +42,7 @@
     name: 'windows_exporter (HTTP )'
     description: 'Inbound rule for Windows Exporter'
     program: 'C:\Program Files\windows_exporter\windows_exporter.exe'
-    localport: '{{ windows_exporter_listen_port }}'
+    localport: '{{ windows_exporter_web_listen_port }}'
     action: 'allow'
     direction: 'in'
     protocol: 'tcp'
