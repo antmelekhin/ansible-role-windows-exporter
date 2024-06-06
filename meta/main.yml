@@ -1,23 +1,23 @@
 ---
 galaxy_info:
-  author: antmelekhin
-  role_name: windows_exporter
-  description: An Ansible role to install, configure and update Windows Exporter.
+  author: 'antmelekhin'
+  role_name: 'windows_exporter'
+  description: 'An Ansible role to install, configure and update the Windows Exporter.'
 
-  license: MIT
+  license: 'MIT'
 
   min_ansible_version: '2.12'
 
   platforms:
-    - name: Windows
+    - name: 'Windows'
       versions:
-        - '2016'
-        - '2019'
+        - 'all'
 
   galaxy_tags:
-    - monitoring
-    - prometheus
-    - windows
-    - exporter
+    - 'exporter'
+    - 'metrics'
+    - 'monitoring'
+    - 'prometheus'
+    - 'windows'
 
 dependencies: []

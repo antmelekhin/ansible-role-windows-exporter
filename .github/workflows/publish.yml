@@ -2,19 +2,18 @@
 name: 'Publish'
 on:
   release:
-    types:
-      - published
+    types: ['published']
 
 jobs:
   publish:
     name: 'Publish'
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-latest'
     steps:
       - name: 'Checkout the codebase'
-        uses: actions/checkout@v4
+        uses: 'actions/checkout@v4'
 
       - name: 'Set up Python 3'
-        uses: actions/setup-python@v5
+        uses: 'actions/setup-python@v5'
         with:
           python-version: '3.x'
 
@@ -22,7 +21,7 @@ jobs:
         run: pip3 install ansible-core
 
       - name: 'Get an Ansible role name'
-        id: get_role_name
+        id: 'get_role_name'
         run: echo "ROLE_NAME=$(yq '.galaxy_info.role_name' meta/main.yml)" >> $GITHUB_OUTPUT
 
       - name: 'Publish the role to the Ansible Galaxy'

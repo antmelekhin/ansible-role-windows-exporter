@@ -4,35 +4,36 @@
     path: 'C:\Program Files\windows_exporter\windows_exporter.exe'
   register: __windows_exporter_is_installed
 
-- name: 'Check current Windows Exporter version'
-  ansible.windows.win_command: '"C:\Program Files\windows_exporter\windows_exporter.exe" --version'
+- name: 'Check the current Windows Exporter version'
+  ansible.windows.win_command:
+    cmd: '"C:\Program Files\windows_exporter\windows_exporter.exe" --version'
   failed_when: false
   changed_when: false
   register: __windows_exporter_version_check
 
-- name: 'Download and install Windows Exporter'
+- name: 'Download and install the Windows Exporter'
   when:
     - not __windows_exporter_is_installed.stat.exists or
       ( __windows_exporter_version_check.stderr_lines | length and
-      windows_exporter_version not in __windows_exporter_version_check.stderr_lines[0].split(" ")[2] ) or
+      windows_exporter_version not in __windows_exporter_version_check.stderr_lines[0].split()[2] ) or
       ( __windows_exporter_version_check.stdout_lines | length and
-      windows_exporter_version not in __windows_exporter_version_check.stdout_lines[0].split(" ")[2] )
+      windows_exporter_version not in __windows_exporter_version_check.stdout_lines[0].split()[2] )
   block:
-    - name: 'Download Windows Exporter binary to local folder'
+    - name: 'Download the Windows Exporter package to a local folder'
       ansible.builtin.get_url:
         url: '{{ windows_exporter_download_url }}/{{ windows_exporter_package_name }}'
-        dest: '/tmp/{{ windows_exporter_package_name }}'
+        dest: '{{ windows_exporter_download_path }}/{{ windows_exporter_package_name }}'
         mode: 0644
       delegate_to: localhost
       check_mode: false
 
-    - name: 'Copy Windows Exporter binary into place'
+    - name: 'Copy the Windows Exporter package into a place'
       ansible.windows.win_copy:
-        src: '/tmp/{{ windows_exporter_package_name }}'
+        src: '{{ windows_exporter_download_path }}/{{ windows_exporter_package_name }}'
         dest: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
       check_mode: false
 
-    - name: 'Install Windows Exporter'
+    - name: 'Install the Windows Exporter package'
       ansible.windows.win_package:
         path: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
         state: 'present'

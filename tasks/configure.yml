@@ -1,33 +1,33 @@
 ---
-- name: 'Configure Windows Exporter'
+- name: 'Copy the Windows Exporter configuration file'
   ansible.windows.win_template:
     src: 'config.yml.j2'
     dest: 'C:\Program Files\windows_exporter\config.yml'
-  notify: 'Restart Windows Exporter'
+  notify: 'Restart the Windows Exporter'
 
-- name: 'Set Windows Exporter startup arguments'
+- name: 'Set the Windows Exporter startup arguments'
   ansible.builtin.set_fact:
     __windows_exporter_arguments: >-
       --config.file="C:\Program Files\windows_exporter\config.yml"
 
-- name: 'Configure web config file and set startup arguments for Windows Exporter'
+- name: 'Copy the web configuration file and set the startup arguments for the Windows Exporter'
   when:
     - windows_exporter_tls_server_config | length or
       windows_exporter_http_server_config | length or
       windows_exporter_basic_auth_users | length
   block:
-    - name: 'Configure web config file for Windows Exporter'
+    - name: 'Copy the Windows Exporter web configuration file'
       ansible.windows.win_template:
         src: 'web_config.yml.j2'
         dest: 'C:\Program Files\windows_exporter\web_config.yml'
-      notify: 'Restart Windows Exporter'
+      notify: 'Restart the Windows Exporter'
 
-    - name: 'Set Windows Exporter startup arguments if web config file exists'
+    - name: 'Set the Windows Exporter startup arguments if web configuration file exists'
       ansible.builtin.set_fact:
         __windows_exporter_arguments: >-
           --config.file="C:\Program Files\windows_exporter\config.yml" --web.config.file "C:\Program Files\windows_exporter\web_config.yml"
 
-- name: 'Ensure Windows Exporter is running and enabled at boot'
+- name: 'Ensure the Windows Exporter is running and enabled at boot'
   ansible.windows.win_service:
     name: 'windows_exporter'
     path: '"C:\Program Files\windows_exporter\windows_exporter.exe" {{ __windows_exporter_arguments }}'
@@ -37,12 +37,12 @@
     state: 'started'
   when: not ansible_check_mode
 
-- name: 'Ensure firewall rule for Windows Exporter is allow'
+- name: 'Allow the Windows Exporter port in the Windows Firewall'
   community.windows.win_firewall_rule:
     name: 'windows_exporter (HTTP )'
     description: 'Inbound rule for Windows Exporter'
     program: 'C:\Program Files\windows_exporter\windows_exporter.exe'
-    localport: '{{ windows_exporter_listen_port }}'
+    localport: '{{ windows_exporter_web_listen_port }}'
     action: 'allow'
     direction: 'in'
     protocol: 'tcp'
