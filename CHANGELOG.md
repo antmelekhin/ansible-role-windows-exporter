@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.8...v2.0.0) (2024-06-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* update variables and common role style (#17)
+
+### Improvements
+
+* update variables and common role style ([#17](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/17)) ([8231dd7](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/8231dd7db61648879ddfaedf4e4e6e7c1a0ac594))
+
 ## [1.2.8](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.7...v1.2.8) (2024-05-02)
 
 
