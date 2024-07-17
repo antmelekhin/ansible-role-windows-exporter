@@ -18,7 +18,6 @@ Requirements
 ------------
 
 - Supported version of Ansible: 2.12 and highter.
-- `gnu-tar` on Mac as deployer host (`brew install gnu-tar`).
 - `pywinrm` is a python library for connection Ansible to Windows hosts via [WinRM](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html).
 - `passlib` on a deployer host when using the basic authentication feature (`python3 -m pip install passlib[bcrypt]`).
 - `cryptography` or `pyOpenSSL` on a deployer host when using the TLS feature.
@@ -32,6 +31,7 @@ Role Variables
 - `windows_exporter_version` The version of Windows Exporter to install (default: `0.25.1`).
 - `windows_exporter_package_name` The Windows Exporter package name (default: `windows_exporter-0.25.1-amd64.msi`).
 - `windows_exporter_download_url` The Windows Exporter package download URL (default: `https://github.com/prometheus-community/windows_exporter/releases/download/v0.25.1`).
+- `windows_exporter_checksum_url` The Windows Exporter checksum file URL (default: `{{ windows_exporter_download_url }}/sha256sums.txt`).
 - `windows_exporter_download_path` Local path to download the Windows Exporter package (default: `/tmp`).
 - `windows_exporter_web_listen_address` The address to listen for the web interface and telemetry (default: `0.0.0.0`).
 - `windows_exporter_web_listen_port` The port number that Windows Exporter listens on (default: `9182`).

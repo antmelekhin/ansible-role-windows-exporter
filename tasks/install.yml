@@ -23,6 +23,7 @@
       ansible.builtin.get_url:
         url: '{{ windows_exporter_download_url }}/{{ windows_exporter_package_name }}'
         dest: '{{ windows_exporter_download_path }}/{{ windows_exporter_package_name }}'
+        checksum: 'sha256:{{ windows_exporter_checksum_url }}'
         mode: 0644
       delegate_to: localhost
       check_mode: false
