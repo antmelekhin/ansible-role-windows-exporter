@@ -31,4 +31,4 @@
 
     - name: 'The Windows Exporter version output'
       ansible.builtin.debug:
-        var: __windows_exporter_version_check.stderr_lines[0].split()[2]
+        msg: 'The current Windows Exporter version is {{ __windows_exporter_version_check.stderr_lines[0].split()[2] }}'
