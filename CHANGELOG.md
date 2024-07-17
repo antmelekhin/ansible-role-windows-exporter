@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.1](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v2.0.0...v2.0.1) (2024-07-17)
+
+
+### Fixes
+
+* add `windows_exporter_checksum_url` variable ([306b927](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/306b927dfa3f939800a417c7cdab9d6231027c91))
+
+
+### Tests
+
+* clean version output in the `default` scenario ([b0c8361](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/b0c836191e8d791427fd72c5672aba5097fe6b4e))
+
 ## [2.0.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v1.2.8...v2.0.0) (2024-06-06)
 
 
