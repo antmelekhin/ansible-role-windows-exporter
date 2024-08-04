@@ -14,7 +14,7 @@ windows_exporter_telemetry_path: '/metrics'
 windows_exporter_telemetry_max_requests: 5
 windows_exporter_log_file: 'eventlog'
 windows_exporter_log_format: 'logfmt'
-windows_exporter_log_level: 'debug'
+windows_exporter_log_level: 'info'
 
 # See available collector-flags: https://github.com/prometheus-community/windows_exporter#collectors
 windows_exporter_collectors_enabled: '[defaults]'
