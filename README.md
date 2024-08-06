@@ -28,9 +28,9 @@ Requirements
 Role Variables
 --------------
 
-- `windows_exporter_version` The version of Windows Exporter to install (default: `0.26.0`).
-- `windows_exporter_package_name` The Windows Exporter package name (default: `windows_exporter-0.26.0-amd64.msi`).
-- `windows_exporter_download_url` The Windows Exporter package download URL (default: `https://github.com/prometheus-community/windows_exporter/releases/download/v0.26.0`).
+- `windows_exporter_version` The version of Windows Exporter to install (default: `0.26.2`).
+- `windows_exporter_package_name` The Windows Exporter package name (default: `windows_exporter-0.26.2-amd64.msi`).
+- `windows_exporter_download_url` The Windows Exporter package download URL (default: `https://github.com/prometheus-community/windows_exporter/releases/download/v0.26.2`).
 - `windows_exporter_checksum_url` The Windows Exporter checksum file URL (default: `{{ windows_exporter_download_url }}/sha256sums.txt`).
 - `windows_exporter_download_path` Local path to download the Windows Exporter package (default: `/tmp`).
 - `windows_exporter_web_listen_address` The address to listen for the web interface and telemetry (default: `0.0.0.0`).
