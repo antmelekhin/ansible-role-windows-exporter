@@ -10,7 +10,7 @@ argument_specs:
       windows_exporter_version:
         type: 'str'
         description: 'The version of Windows Exporter to install.'
-        default: '0.26.0'
+        default: '0.26.2'
       windows_exporter_package_name:
         type: 'str'
         description: 'The Windows Exporter package name.'
@@ -83,8 +83,7 @@ argument_specs:
         description: 'Certificate and key files for server to use to authenticate to client'
       windows_exporter_http_server_config:
         type: 'dict'
-        description:
-          - 'Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS.'
+        description: 'Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS.'
       windows_exporter_basic_auth_users:
         type: 'dict'
         description: 'Users and password for basic authentication. Passwords are automatically hashed with bcrypt.'
