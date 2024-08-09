@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v2.1.0...v3.0.0) (2024-08-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename `windows_exporter_collector` variable (#21)
+
+### Fixes
+
+* rename `windows_exporter_collector` variable ([#21](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/21)) ([e2310e9](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/e2310e98c80cf7f6ba688f3d69cfedc7c5d8469f))
+
 ## [2.1.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v2.0.3...v2.1.0) (2024-08-09)
 
 
