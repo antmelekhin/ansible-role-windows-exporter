@@ -1,0 +1,89 @@
+---
+argument_specs:
+  main:
+    short_description: 'Windows Exporter'
+    description:
+      - 'An Ansible role to install, configure and update the L(Windows Exporter,https://github.com/prometheus-community/windows_exporter).'
+    author:
+      - 'Melekhin Anton'
+    options:
+      windows_exporter_version:
+        type: 'str'
+        description: 'The version of Windows Exporter to install.'
+        default: '0.26.2'
+      windows_exporter_package_name:
+        type: 'str'
+        description: 'The Windows Exporter package name.'
+        default: 'windows_exporter-{{ windows_exporter_version }}-{{ __windows_exporter_architecture }}.msi'
+      windows_exporter_download_url:
+        type: 'str'
+        description: 'The Windows Exporter package download URL.'
+        default: 'https://github.com/prometheus-community/windows_exporter/releases/download/v{{ windows_exporter_version }}'
+      windows_exporter_checksum_url:
+        type: 'str'
+        description: 'The Windows Exporter checksum file URL.'
+        default: '{{ windows_exporter_download_url }}/sha256sums.txt'
+      windows_exporter_download_path:
+        type: 'path'
+        description: 'Local path to download the Windows Exporter package.'
+        default: '/tmp'
+      windows_exporter_web_listen_address:
+        type: 'str'
+        description: 'The address to listen for the web interface and telemetry.'
+        default: '0.0.0.0'
+      windows_exporter_web_listen_port:
+        type: 'int'
+        description: 'The port number that Windows Exporter listens on.'
+        default: 9182
+      windows_exporter_scrape_timeout_margin:
+        type: 'str'
+        description: 'Seconds to subtract from the timeout allowed by the client.'
+        default: '0.5'
+      windows_exporter_telemetry_path:
+        type: 'str'
+        description: 'The path to expose metrics.'
+        default: '/metrics'
+      windows_exporter_telemetry_max_requests:
+        type: 'int'
+        description: 'Maximum number of concurrent requests. 0 to disable.'
+        default: 5
+      windows_exporter_log_file:
+        type: 'str'
+        description: 'Output file of log messages.'
+        choices:
+          - 'stdout'
+          - 'stderr'
+          - 'eventlog'
+        default: 'eventlog'
+      windows_exporter_log_format:
+        type: 'str'
+        description: 'A log message output format.'
+        choices:
+          - 'logfmt'
+          - 'json'
+        default: 'logfmt'
+      windows_exporter_log_level:
+        type: 'str'
+        description: 'The Windows Exporter logging level.'
+        choices:
+          - 'debug'
+          - 'info'
+          - 'warn'
+          - 'error'
+        default: 'info'
+      windows_exporter_collectors_enabled:
+        type: 'str'
+        description: 'Comma-separated list of collectors to use.'
+        default: '[defaults]'
+      windows_exporter_collector:
+        type: 'list'
+        description: 'Flags for collectors.'
+      windows_exporter_tls_server_config:
+        type: 'dict'
+        description: 'Certificate and key files for server to use to authenticate to client'
+      windows_exporter_http_server_config:
+        type: 'dict'
+        description: 'Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS.'
+      windows_exporter_basic_auth_users:
+        type: 'dict'
+        description: 'Users and password for basic authentication. Passwords are automatically hashed with bcrypt.'

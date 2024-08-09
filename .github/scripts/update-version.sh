@@ -33,7 +33,7 @@ fi
 
 # Update latest version
 sed -i "s/_version:.*$/_version: '${LATEST_VERSION}'/" 'defaults/main.yml'
-sed -i "s/${CURRENT_VERSION}/${LATEST_VERSION}/" 'README.md'
+yq eval -i ".argument_specs.main.options.${SOFTWARE}_version.default = \"${LATEST_VERSION}\"" 'meta/argument_specs.yml'
 
 # Repository variables
 REPO_NAME=$(git config --get remote.origin.url | sed -e 's|^https://github.com/||')
@@ -49,7 +49,7 @@ if [ "${REMOTE_BRANCH}" == null ] ; then
     git checkout -b "${UPDATE_VERSION_BRANCH}"
 
     # Push new version
-    git add defaults/main.yml README.md
+    git add defaults/main.yml meta/argument_specs.yml
     git commit --signoff -m "${UPDATE_VERSION_COMMIT}"
 
     echo -e "${GREEN}Pushing to ${UPDATE_VERSION_BRANCH} branch.${NO_COLOR}"

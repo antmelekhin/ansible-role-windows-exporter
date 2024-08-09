@@ -25,7 +25,8 @@
     - name: 'Set the Windows Exporter startup arguments if web configuration file exists'
       ansible.builtin.set_fact:
         __windows_exporter_arguments: >-
-          --config.file="C:\Program Files\windows_exporter\config.yml" --web.config.file "C:\Program Files\windows_exporter\web_config.yml"
+          --config.file="C:\Program Files\windows_exporter\config.yml"
+          --web.config.file "C:\Program Files\windows_exporter\web_config.yml"
 
 - name: 'Ensure the Windows Exporter is running and enabled at boot'
   ansible.windows.win_service:
