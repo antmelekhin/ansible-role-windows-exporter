@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v2.0.3...v2.1.0) (2024-08-09)
+
+
+### Features
+
+* add `meta/argument_specs.yml` file and another improvements ([#19](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/19)) ([262cd99](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/262cd99b26943588e4d1aa53af436999b9912304))
+
 ## [2.0.3](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v2.0.2...v2.0.3) (2024-08-06)
 
 
