@@ -3,8 +3,8 @@ Windows Exporter
 
 An Ansible role to install, configure and update the [Windows Exporter](https://github.com/prometheus-community/windows_exporter).
 
-Update to 2.x
--------------
+Upgrade to 2.x
+--------------
 
 Since the 2.0.0 version of the role, some variables have changed. You will need to update them in your playbooks.
 
@@ -13,6 +13,11 @@ Since the 2.0.0 version of the role, some variables have changed. You will need 
 - `windows_exporter_metrics_path` to `windows_exporter_telemetry_path`
 - `windows_exporter_timeout_margin` to `windows_exporter_scrape_timeout_margin`
 - `windows_exporter_max_requests` to `windows_exporter_telemetry_max_requests`
+
+Upgrade to 3.x
+--------------
+
+In version 3.0.0, the `windows_exporter_collector` variable was renamed to `windows_exporter_collectors`.
 
 Requirements
 ------------
@@ -28,9 +33,9 @@ Requirements
 Role Variables
 --------------
 
-All variables that can be overridden are stored in the [defaults/main.yml](defaults/main.yml) file.
-Please refer to the [meta/argument_specs.yml](meta/argument_specs.yml) file for a description of the available variables.
-Similarly, descriptions and defaults for preset variables can be found in the [vars/main.yml](vars/main.yml) file.
+All variables that can be overridden are stored in the [defaults/main.yml](https://github.com/antmelekhin/ansible-role-windows-exporter/blob/main/defaults/main.yml) file.
+Please refer to the [meta/argument_specs.yml](https://github.com/antmelekhin/ansible-role-windows-exporter/blob/main/meta/argument_specs.yml) file for a description of the available variables.
+Similarly, descriptions and defaults for preset variables can be found in the [vars/main.yml](https://github.com/antmelekhin/ansible-role-windows-exporter/blob/main/vars/main.yml) file.
 
 Dependencies
 ------------
@@ -50,7 +55,7 @@ Install, configure the `Windows Exporter` and specify a custom query for service
   roles:
     - role: antmelekhin.windows_exporter
       windows_exporter_collectors_enabled: '[defaults],memory'
-      windows_exporter_collector:
+      windows_exporter_collectors:
         - name: service
           flags:
             services-where: Name='windows_exporter'

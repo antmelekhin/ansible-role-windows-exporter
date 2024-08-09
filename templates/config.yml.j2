@@ -1,10 +1,11 @@
 ---
 {{ ansible_managed | comment }}
+
 collectors:
   enabled: "{{ windows_exporter_collectors_enabled }}"
-{% if windows_exporter_collector | length > 0 %}
+{% if windows_exporter_collectors | length %}
 collector:
-{% for collector in windows_exporter_collector %}
+{% for collector in windows_exporter_collectors %}
   {{ collector.name }}:
 {% for key, value in collector.flags.items() %}
     {{ key }}: {{ value }}
