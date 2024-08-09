@@ -1,7 +1,7 @@
 ---
 # See available releases: https://github.com/prometheus-community/windows_exporter/releases
 windows_exporter_version: '0.26.2'
-windows_exporter_package_name: 'windows_exporter-{{ windows_exporter_version }}-{{ _windows_exporter_arch }}.msi'
+windows_exporter_package_name: 'windows_exporter-{{ windows_exporter_version }}-{{ __windows_exporter_architecture }}.msi'
 windows_exporter_download_url: 'https://github.com/prometheus-community/windows_exporter/releases/download/v{{ windows_exporter_version }}'
 windows_exporter_checksum_url: '{{ windows_exporter_download_url }}/sha256sums.txt'
 windows_exporter_download_path: '/tmp'
@@ -9,12 +9,12 @@ windows_exporter_download_path: '/tmp'
 # See available settings flags: https://github.com/prometheus-community/windows_exporter/tree/master#flags
 windows_exporter_web_listen_address: '0.0.0.0'
 windows_exporter_web_listen_port: 9182
-windows_exporter_scrape_timeout_margin: 0.5
+windows_exporter_scrape_timeout_margin: '0.5'
 windows_exporter_telemetry_path: '/metrics'
 windows_exporter_telemetry_max_requests: 5
 windows_exporter_log_file: 'eventlog'
 windows_exporter_log_format: 'logfmt'
-windows_exporter_log_level: 'debug'
+windows_exporter_log_level: 'info'
 
 # See available collector-flags: https://github.com/prometheus-community/windows_exporter#collectors
 windows_exporter_collectors_enabled: '[defaults]'
