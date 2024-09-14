@@ -44,9 +44,10 @@
     description: 'Inbound rule for Windows Exporter'
     program: 'C:\Program Files\windows_exporter\windows_exporter.exe'
     localport: '{{ windows_exporter_web_listen_port }}'
+    remoteip: '{{ windows_exporter_win_firewall_rule_remoteip }}'
     action: 'allow'
     direction: 'in'
     protocol: 'tcp'
-    profiles: 'domain,private,public'
+    profiles: '{{ windows_exporter_win_firewall_rule_profiles }}'
     enabled: true
-    state: 'present'
+    state: '{{ windows_exporter_win_firewall_rule_state }}'
