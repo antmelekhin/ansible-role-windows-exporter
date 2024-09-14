@@ -28,4 +28,4 @@ windows_exporter_basic_auth_users: {}
 # The Windows Exporter firewall settings:
 windows_exporter_win_firewall_rule_profiles: 'domain,private,public'
 windows_exporter_win_firewall_rule_remoteip: 'any'
-windows_exporter_win_firewall_rule_state: 'absent'
+windows_exporter_win_firewall_rule_state: 'present'
