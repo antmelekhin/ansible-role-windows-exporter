@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.0...v3.1.1) (2024-09-14)
+
+
+### Fixes
+
+* change default value for `windows_exporter_win_firewall_rule_state` variable ([953d66b](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/953d66b6cd979ff590fc4633ca931a7b3bc9e9b5))
+
 ## [3.1.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.0.3...v3.1.0) (2024-09-14)
 
 
