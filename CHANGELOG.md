@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.0.3...v3.1.0) (2024-09-14)
+
+
+### Features
+
+* add windows firewall settings ([7941e7b](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/7941e7bb95616cd2e2da3a2570e077efa4428769))
+
 ## [3.0.3](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.0.2...v3.0.3) (2024-09-03)
 
 
