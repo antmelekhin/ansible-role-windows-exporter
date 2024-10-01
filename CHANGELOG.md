@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.3](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.2...v3.1.3) (2024-10-01)
+
+
+### Fixes
+
+* **version:** windows_exporter updated to `0.29.1` release ([#26](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/26)) ([a70af87](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/a70af870739874486565ca890c28968938b870cf))
+
 ## [3.1.2](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.1...v3.1.2) (2024-09-25)
 
 
