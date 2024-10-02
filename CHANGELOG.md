@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.4](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.3...v3.1.4) (2024-10-02)
+
+
+### Fixes
+
+* never use sudo for downloading windows_exporter ([#27](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/27)) ([c66e848](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/c66e8485121f1355bd340f4b5e618eba1f5aeebe))
+
 ## [3.1.3](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.2...v3.1.3) (2024-10-01)
 
 
