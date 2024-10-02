@@ -27,6 +27,7 @@
         mode: 0644
       delegate_to: localhost
       check_mode: false
+      become: false
 
     - name: 'Copy the Windows Exporter package into a place'
       ansible.windows.win_copy:
