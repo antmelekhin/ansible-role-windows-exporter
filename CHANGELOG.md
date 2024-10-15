@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.1.5](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.4...v3.1.5) (2024-10-15)
+
+
+### Continuous Integration
+
+* use `ubuntu-22.04` instead of `ubuntu-24.04` ([86bb117](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/86bb1174a07369af8ee85231d5e37e66eacdf7bf))
+* use `ubuntu-24.04` instead of `ubuntu-latest` ([71f2c8a](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/71f2c8a8de47c759770f21322a031fb0e4b2c665))
+
+
+### Fixes
+
+* **version:** windows_exporter updated to `0.29.2` release ([#28](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/28)) ([2a1d898](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/2a1d8982b01664ca317f0edd6958d0bd7a908037))
+
+
+### Styles
+
+* minor fixes ([f100c05](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/f100c0508c3570f6baf80250e12f649643992b2b))
+
 ## [3.1.4](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.3...v3.1.4) (2024-10-02)
 
 
