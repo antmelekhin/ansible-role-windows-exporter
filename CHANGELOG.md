@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.6](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.5...v3.1.6) (2024-10-21)
+
+
+### Fixes
+
+* normalize ansible_architecture before mapping it in `__windows_exporter_architecture` evaluation ([#29](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/29)) ([f7f17ec](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/f7f17ec80c6aa8362577da0bb7a094dfe513c88a))
+
 ## [3.1.5](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.4...v3.1.5) (2024-10-15)
 
 
