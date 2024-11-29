@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.8](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.7...v3.1.8) (2024-11-29)
+
+
+### Fixes
+
+* restart service after possibly updating the service arguments so it is running with last set arguments ([#30](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/30)) ([decf1fa](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/decf1fa85b99585c2ae57d3ac9d1844486e8454f))
+
 ## [3.1.7](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.6...v3.1.7) (2024-11-29)
 
 
