@@ -1,0 +1,3 @@
+molecule == 24.*
+molecule-plugins[docker] == 23.*
+molecule-plugins[vagrant] == 23.*
