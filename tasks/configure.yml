@@ -36,6 +36,7 @@
       - 'Winmgmt'
     start_mode: 'delayed'
     state: 'started'
+  notify: 'Restart the Windows Exporter'
   when: not ansible_check_mode
 
 - name: 'Allow the Windows Exporter port in the Windows Firewall'
