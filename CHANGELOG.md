@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.7](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.6...v3.1.7) (2024-11-29)
+
+
+### Documentation
+
+* **README:** updated dependencies ([0774e44](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/0774e448550ad6a6880dd9302ca66bc0bba4fda3))
+
+
+### Styles
+
+* updated jinja templates ([3355c76](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/3355c76c08f9e5cd606249f1c7cea7a77328d97a))
+
 ## [3.1.6](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.5...v3.1.6) (2024-10-21)
 
 
