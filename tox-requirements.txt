@@ -1,3 +1,4 @@
+ansible-compat == 24.10.0
 molecule == 24.*
 molecule-plugins[docker] == 23.*
 molecule-plugins[vagrant] == 23.*
