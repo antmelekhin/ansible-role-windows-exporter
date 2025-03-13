@@ -2,5 +2,6 @@
 __windows_exporter_architecture_dict:
   32-bit: '386'
   64-bit: 'amd64'
+  "64 位": 'amd64'
 
 __windows_exporter_architecture: '{{ __windows_exporter_architecture_dict[ansible_architecture | lower] | default(ansible_architecture | lower) }}'
