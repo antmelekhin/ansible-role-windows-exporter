@@ -1,2 +1,5 @@
+---
+exclude_paths:
+  - '.ansible/'
 skip_list:
   - 'role-name'
