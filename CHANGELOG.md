@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.14](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.13...v3.1.14) (2025-03-24)
+
+
+### Fixes
+
+* rm value from `windows_exporter_web_listen_address` variable ([5428515](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/542851545f9324ec5f42891a2f06f5005ba03735))
+
 ## [3.1.13](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.12...v3.1.13) (2025-03-20)
 
 
