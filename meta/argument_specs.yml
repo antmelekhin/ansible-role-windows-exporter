@@ -29,7 +29,6 @@ argument_specs:
       windows_exporter_web_listen_address:
         type: 'str'
         description: 'The address to listen for the web interface and telemetry.'
-        default: '0.0.0.0'
       windows_exporter_web_listen_port:
         type: 'int'
         description: 'The port number that Windows Exporter listens on.'

@@ -7,7 +7,7 @@ windows_exporter_checksum_url: '{{ windows_exporter_download_url }}/sha256sums.t
 windows_exporter_download_path: '/tmp'
 
 # See available settings flags: https://github.com/prometheus-community/windows_exporter/tree/master#flags
-windows_exporter_web_listen_address: '0.0.0.0'
+windows_exporter_web_listen_address: ''
 windows_exporter_web_listen_port: 9182
 windows_exporter_scrape_timeout_margin: '0.5'
 windows_exporter_telemetry_path: '/metrics'
