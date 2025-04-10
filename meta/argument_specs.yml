@@ -26,6 +26,10 @@ argument_specs:
         type: 'path'
         description: 'Local path to download the Windows Exporter package.'
         default: '/tmp'
+      windows_exporter_install_path:
+        type: 'path'
+        description: 'The Windows Exporter installation directory.'
+        default: 'C:\Program Files\windows_exporter'
       windows_exporter_web_listen_address:
         type: 'str'
         description: 'The address to listen for the web interface and telemetry.'

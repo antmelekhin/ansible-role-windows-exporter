@@ -6,6 +6,9 @@ windows_exporter_download_url: 'https://github.com/prometheus-community/windows_
 windows_exporter_checksum_url: '{{ windows_exporter_download_url }}/sha256sums.txt'
 windows_exporter_download_path: '/tmp'
 
+# The Windows Exporter directory
+windows_exporter_install_path: 'C:\Program Files\windows_exporter'
+
 # See available settings flags: https://github.com/prometheus-community/windows_exporter/tree/master#flags
 windows_exporter_web_listen_address: ''
 windows_exporter_web_listen_port: 9182
