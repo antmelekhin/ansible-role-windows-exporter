@@ -7,8 +7,8 @@
 
 - name: 'Set the Windows Exporter startup arguments'
   ansible.builtin.set_fact:
-    __windows_exporter_arguments: >-
-      --config.file="C:\Program Files\windows_exporter\config.yml"
+    __windows_exporter_startup_arguments: >-
+      --config.file="{{ windows_exporter_install_path }}\config.yml"
 
 - name: 'Copy the web configuration file and set the startup arguments for the Windows Exporter'
   when:
@@ -24,14 +24,14 @@
 
     - name: 'Set the Windows Exporter startup arguments if web configuration file exists'
       ansible.builtin.set_fact:
-        __windows_exporter_arguments: >-
+        __windows_exporter_startup_arguments: >-
           --config.file="C:\Program Files\windows_exporter\config.yml"
           --web.config.file "C:\Program Files\windows_exporter\web_config.yml"
 
 - name: 'Ensure the Windows Exporter is running and enabled at boot'
   ansible.windows.win_service:
     name: 'windows_exporter'
-    path: '"C:\Program Files\windows_exporter\windows_exporter.exe" {{ __windows_exporter_arguments }}'
+    path: '"C:\Program Files\windows_exporter\windows_exporter.exe" {{ __windows_exporter_startup_arguments }}'
     dependencies:
       - 'Winmgmt'
     start_mode: 'delayed'
