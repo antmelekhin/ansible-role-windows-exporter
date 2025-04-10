@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.15...v3.2.0) (2025-04-10)
+
+
+### Features
+
+* add `windows_exporter_install_path` variable ([#39](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/39)) ([370b692](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/370b692a5499f04fb87f81cb425550a0a0cb3e12))
+
 ## [3.1.15](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.1.14...v3.1.15) (2025-04-09)
 
 
