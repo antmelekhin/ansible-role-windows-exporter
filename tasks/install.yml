@@ -1,12 +1,12 @@
 ---
 - name: 'Check if Windows Exporter is installed'
   ansible.windows.win_stat:
-    path: 'C:\Program Files\windows_exporter\windows_exporter.exe'
+    path: '{{ windows_exporter_install_path }}\windows_exporter.exe'
   register: __windows_exporter_is_installed
 
 - name: 'Check the current Windows Exporter version'
   ansible.windows.win_command:
-    cmd: '"C:\Program Files\windows_exporter\windows_exporter.exe" --version'
+    cmd: '"{{ windows_exporter_install_path }}\windows_exporter.exe" --version'
   failed_when: false
   changed_when: false
   register: __windows_exporter_version_check
@@ -35,8 +35,21 @@
         dest: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
       check_mode: false
 
+    - name: 'Set the Windows Exporter installation arguments (< 0.29.0)'
+      ansible.builtin.set_fact:
+        __windows_exporter_install_arguments: >-
+          APPLICATIONROOTDIRECTORY="{{ windows_exporter_install_path }}"
+      when: windows_exporter_version < '0.29.0'
+
+    - name: 'Set the Windows Exporter installation arguments (≥ 0.29.0)'
+      ansible.builtin.set_fact:
+        __windows_exporter_install_arguments: >-
+          APPLICATIONFOLDER="{{ windows_exporter_install_path }}"
+      when: windows_exporter_version >= '0.29.0'
+
     - name: 'Install the Windows Exporter package'
       ansible.windows.win_package:
         path: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
+        arguments: '{{ __windows_exporter_install_arguments }}'
         state: 'present'
       when: not ansible_check_mode

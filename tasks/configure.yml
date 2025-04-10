@@ -2,13 +2,13 @@
 - name: 'Copy the Windows Exporter configuration file'
   ansible.windows.win_template:
     src: 'config.yml.j2'
-    dest: 'C:\Program Files\windows_exporter\config.yml'
+    dest: '{{ windows_exporter_install_path }}\config.yml'
   notify: 'Restart the Windows Exporter'
 
 - name: 'Set the Windows Exporter startup arguments'
   ansible.builtin.set_fact:
-    __windows_exporter_arguments: >-
-      --config.file="C:\Program Files\windows_exporter\config.yml"
+    __windows_exporter_startup_arguments: >-
+      --config.file="{{ windows_exporter_install_path }}\config.yml"
 
 - name: 'Copy the web configuration file and set the startup arguments for the Windows Exporter'
   when:
@@ -19,19 +19,19 @@
     - name: 'Copy the Windows Exporter web configuration file'
       ansible.windows.win_template:
         src: 'web_config.yml.j2'
-        dest: 'C:\Program Files\windows_exporter\web_config.yml'
+        dest: '{{ windows_exporter_install_path }}\web_config.yml'
       notify: 'Restart the Windows Exporter'
 
     - name: 'Set the Windows Exporter startup arguments if web configuration file exists'
       ansible.builtin.set_fact:
-        __windows_exporter_arguments: >-
-          --config.file="C:\Program Files\windows_exporter\config.yml"
-          --web.config.file "C:\Program Files\windows_exporter\web_config.yml"
+        __windows_exporter_startup_arguments: >-
+          --config.file="{{ windows_exporter_install_path }}\config.yml"
+          --web.config.file "{{ windows_exporter_install_path }}\web_config.yml"
 
 - name: 'Ensure the Windows Exporter is running and enabled at boot'
   ansible.windows.win_service:
     name: 'windows_exporter'
-    path: '"C:\Program Files\windows_exporter\windows_exporter.exe" {{ __windows_exporter_arguments }}'
+    path: '"{{ windows_exporter_install_path }}\windows_exporter.exe" {{ __windows_exporter_startup_arguments }}'
     dependencies:
       - 'Winmgmt'
     start_mode: 'delayed'
@@ -43,7 +43,7 @@
   community.windows.win_firewall_rule:
     name: 'windows_exporter (HTTP )'
     description: 'Inbound rule for Windows Exporter'
-    program: 'C:\Program Files\windows_exporter\windows_exporter.exe'
+    program: '{{ windows_exporter_install_path }}\windows_exporter.exe'
     localport: '{{ windows_exporter_web_listen_port }}'
     remoteip: '{{ windows_exporter_win_firewall_rule_remoteip }}'
     action: 'allow'
