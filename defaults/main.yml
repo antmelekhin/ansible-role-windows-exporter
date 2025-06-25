@@ -1,6 +1,6 @@
 ---
 # See available releases: https://github.com/prometheus-community/windows_exporter/releases
-windows_exporter_version: '0.30.7'
+windows_exporter_version: '0.30.8'
 windows_exporter_package_name: 'windows_exporter-{{ windows_exporter_version }}-{{ __windows_exporter_architecture }}.msi'
 windows_exporter_download_url: 'https://github.com/prometheus-community/windows_exporter/releases/download/v{{ windows_exporter_version }}'
 windows_exporter_checksum_url: '{{ windows_exporter_download_url }}/sha256sums.txt'
