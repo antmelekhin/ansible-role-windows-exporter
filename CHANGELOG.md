@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.5](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.2.4...v3.2.5) (2025-07-28)
+
+
+### Fixes
+
+* add version condition for telemetry_max_requests ([#45](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/45)) ([368fa42](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/368fa427828074feb4bc38d24a0cd223e08e7fa9))
+
 ## [3.2.4](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.2.3...v3.2.4) (2025-07-27)
 
 
