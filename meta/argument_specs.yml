@@ -47,7 +47,9 @@ argument_specs:
         default: '/metrics'
       windows_exporter_telemetry_max_requests:
         type: 'int'
-        description: 'Maximum number of concurrent requests. 0 to disable.'
+        description:
+          - 'Maximum number of concurrent requests. 0 to disable.'
+          - 'This variable only works until version 0.31.0. For max-requests, see: L(#2030,https://github.com/prometheus-community/windows_exporter/pull/2030)'
         default: 5
       windows_exporter_log_file:
         type: 'str'
