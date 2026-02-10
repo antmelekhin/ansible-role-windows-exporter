@@ -14,9 +14,9 @@
 - name: 'Download and install the Windows Exporter'
   when:
     - not __windows_exporter_is_installed.stat.exists or
-      ( __windows_exporter_version_check.stderr_lines | length and
+      ( __windows_exporter_version_check.stderr_lines | length > 0 and
       windows_exporter_version not in __windows_exporter_version_check.stderr_lines[0].split()[2] ) or
-      ( __windows_exporter_version_check.stdout_lines | length and
+      ( __windows_exporter_version_check.stdout_lines | length > 0 and
       windows_exporter_version not in __windows_exporter_version_check.stdout_lines[0].split()[2] )
   block:
     - name: 'Download the Windows Exporter package to a local folder'
