@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.8](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.2.7...v3.2.8) (2026-02-10)
+
+
+### Fixes
+
+* make conditions work with newer ansible versions ([#48](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/48)) ([69f15e4](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/69f15e44057d5500287bc4ffa121dc536d4a7417))
+
 ## [3.2.7](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.2.6...v3.2.7) (2025-09-15)
 
 
