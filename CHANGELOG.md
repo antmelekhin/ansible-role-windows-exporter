@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.9](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.2.8...v3.2.9) (2026-03-29)
+
+
+### Fixes
+
+* use newer style ansible facts ([91aa711](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/91aa71110b4613d39548d3af6576b209858d1432))
+
 ## [3.2.8](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.2.7...v3.2.8) (2026-02-10)
 
 
