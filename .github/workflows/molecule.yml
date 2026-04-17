@@ -20,5 +20,5 @@ jobs:
 
       - name: 'Run linters'
         run: |
-          pip3 install --no-cache-dir tox
-          tox -e lint-2.16
+          pip3 install --no-cache-dir tox==4.49.*
+          tox -e ansible216-lint
