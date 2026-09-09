@@ -18,7 +18,7 @@
       ansible.builtin.copy:
         src: '{{ cert.src }}'
         dest: '{{ cert.dest }}'
-        mode: 0644
+        mode: '0644'
       loop:
         - src: '/tmp/certificate.cert'
           dest: '{{ windows_exporter_tls_server_config.cert_file }}'
