@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.2.14...v3.3.0) (2026-10-29)
+
+
+### Features
+
+* change to support non-localized windows distributions ([#55](https://github.com/antmelekhin/ansible-role-windows-exporter/issues/55)) ([9541888](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/9541888908a7b24f0d90f84797348e09fe37b530))
+
 ## [3.2.14](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.2.13...v3.2.14) (2026-10-13)
 
 
