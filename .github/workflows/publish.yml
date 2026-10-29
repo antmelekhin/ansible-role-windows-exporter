@@ -15,10 +15,10 @@ jobs:
       - name: 'Set up Python 3'
         uses: 'actions/setup-python@v5'
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
       - name: 'Install ansible-core package'
-        run: pip3 install ansible-core
+        run: pip3 install ansible-core==2.16.*
 
       - name: 'Get an Ansible role name'
         id: 'get_role_name'
