@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.3.2](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.3.1...v3.3.2) (2026-10-31)
+
+
+### Fixes
+
+* fixed deprecation warning with ansible_facts ([07ec6b1](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/07ec6b19c8dce74874a0091048ebff1c6a36c6e4))
+
+
+### Styles
+
+* minor fixes in task names and docs ([7323e61](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/7323e61b10ec545719e605140a955b6b54fdc896))
+
 ## [3.3.1](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.3.0...v3.3.1) (2026-10-29)
 
 
