@@ -4,7 +4,7 @@
   gather_facts: false
 
   tasks:
-    - name: 'Install the dependencies for basic authentication and certificate generation'
+    - name: 'Install dependencies for basic authentication and certificate generation'
       ansible.builtin.pip:
         name:
           - 'cryptography'

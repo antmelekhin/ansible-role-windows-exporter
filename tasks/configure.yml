@@ -1,34 +1,34 @@
 ---
-- name: 'Copy the Windows Exporter configuration file'
+- name: 'Copy Windows Exporter configuration file'
   ansible.windows.win_template:
     src: 'config.yml.j2'
     dest: '{{ windows_exporter_install_path }}\config.yml'
-  notify: 'Restart the Windows Exporter'
+  notify: 'Restart Windows Exporter'
 
-- name: 'Set the Windows Exporter startup arguments'
+- name: 'Set Windows Exporter startup arguments'
   ansible.builtin.set_fact:
     __windows_exporter_startup_arguments: >-
       --config.file="{{ windows_exporter_install_path }}\config.yml"
 
-- name: 'Copy the web configuration file and set the startup arguments for the Windows Exporter'
+- name: 'Copy web configuration file and set startup arguments for Windows Exporter'
   when:
     - windows_exporter_tls_server_config | length > 0 or
       windows_exporter_http_server_config | length > 0 or
       windows_exporter_basic_auth_users | length > 0
   block:
-    - name: 'Copy the Windows Exporter web configuration file'
+    - name: 'Copy Windows Exporter web configuration file'
       ansible.windows.win_template:
         src: 'web_config.yml.j2'
         dest: '{{ windows_exporter_install_path }}\web_config.yml'
-      notify: 'Restart the Windows Exporter'
+      notify: 'Restart Windows Exporter'
 
-    - name: 'Set the Windows Exporter startup arguments if web configuration file exists'
+    - name: 'Set Windows Exporter startup arguments if web configuration file exists'
       ansible.builtin.set_fact:
         __windows_exporter_startup_arguments: >-
           --config.file="{{ windows_exporter_install_path }}\config.yml"
           --web.config.file "{{ windows_exporter_install_path }}\web_config.yml"
 
-- name: 'Ensure the Windows Exporter is running and enabled at boot'
+- name: 'Ensure Windows Exporter is running and enabled at boot'
   ansible.windows.win_service:
     name: 'windows_exporter'
     path: '"{{ windows_exporter_install_path }}\windows_exporter.exe" {{ __windows_exporter_startup_arguments }}'
@@ -36,10 +36,10 @@
       - 'Winmgmt'
     start_mode: 'delayed'
     state: 'started'
-  notify: 'Restart the Windows Exporter'
+  notify: 'Restart Windows Exporter'
   when: not ansible_check_mode
 
-- name: 'Allow the Windows Exporter port in the Windows Firewall'
+- name: 'Allow Windows Exporter port in Windows Firewall'
   community.windows.win_firewall_rule:
     name: 'windows_exporter (HTTP )'
     description: 'Inbound rule for Windows Exporter'

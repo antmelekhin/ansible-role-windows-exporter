@@ -4,14 +4,14 @@
     path: '{{ windows_exporter_install_path }}\windows_exporter.exe'
   register: __windows_exporter_is_installed
 
-- name: 'Check the current Windows Exporter version'
+- name: 'Check current Windows Exporter version'
   ansible.windows.win_command:
     cmd: '"{{ windows_exporter_install_path }}\windows_exporter.exe" --version'
   failed_when: false
   changed_when: false
   register: __windows_exporter_version_check
 
-- name: 'Download and install the Windows Exporter'
+- name: 'Download and install Windows Exporter'
   when:
     - not __windows_exporter_is_installed.stat.exists or
       ( __windows_exporter_version_check.stderr_lines | length > 0 and
@@ -19,7 +19,7 @@
       ( __windows_exporter_version_check.stdout_lines | length > 0 and
       windows_exporter_version not in __windows_exporter_version_check.stdout_lines[0].split()[2] )
   block:
-    - name: 'Download the Windows Exporter package to a local folder'
+    - name: 'Download Windows Exporter package to a local folder'
       become: false
       ansible.builtin.get_url:
         url: '{{ windows_exporter_download_url }}/{{ windows_exporter_package_name }}'
@@ -29,25 +29,25 @@
       delegate_to: localhost
       check_mode: false
 
-    - name: 'Copy the Windows Exporter package to a target host'
+    - name: 'Copy Windows Exporter package to a target host'
       ansible.windows.win_copy:
         src: '{{ windows_exporter_download_path }}/{{ windows_exporter_package_name }}'
         dest: '{{ ansible_facts.env.TEMP }}\{{ windows_exporter_package_name }}'
       check_mode: false
 
-    - name: 'Set the Windows Exporter installation arguments (< 0.29.0)'
+    - name: 'Set Windows Exporter installation arguments (< 0.29.0)'
       ansible.builtin.set_fact:
         __windows_exporter_install_arguments: >-
           APPLICATIONROOTDIRECTORY="{{ windows_exporter_install_path }}"
       when: windows_exporter_version < '0.29.0'
 
-    - name: 'Set the Windows Exporter installation arguments (≥ 0.29.0)'
+    - name: 'Set Windows Exporter installation arguments (≥ 0.29.0)'
       ansible.builtin.set_fact:
         __windows_exporter_install_arguments: >-
           APPLICATIONFOLDER="{{ windows_exporter_install_path }}"
       when: windows_exporter_version >= '0.29.0'
 
-    - name: 'Install the Windows Exporter package'
+    - name: 'Install Windows Exporter package'
       ansible.windows.win_package:
         path: '{{ ansible_facts.env.TEMP }}\{{ windows_exporter_package_name }}'
         arguments: '{{ __windows_exporter_install_arguments }}'

@@ -13,7 +13,7 @@
       ansible.builtin.assert:
         that: "'running' in __windows_exporter_service.state"
 
-    - name: 'Verify the Windows Exporter is responding to requests'
+    - name: 'Verify Windows Exporter is responding to requests'
       ansible.builtin.uri:
         url: 'http://{{ ansible_host }}:9182/metrics'
       delegate_to: localhost
@@ -22,13 +22,13 @@
       retries: 120
       delay: 5
 
-    - name: 'Check the current Windows Exporter version'
+    - name: 'Check current Windows Exporter version'
       ansible.windows.win_command:
         cmd: '"C:\Program Files\windows_exporter\windows_exporter.exe" --version'
       failed_when: false
       changed_when: false
       register: __windows_exporter_version_check
 
-    - name: 'The Windows Exporter version output'
+    - name: 'Windows Exporter version output'
       ansible.builtin.debug:
         msg: 'The current Windows Exporter version is {{ __windows_exporter_version_check.stderr_lines[0].split()[2] }}'
