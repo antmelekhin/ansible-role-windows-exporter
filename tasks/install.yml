@@ -32,7 +32,7 @@
     - name: 'Copy the Windows Exporter package to a target host'
       ansible.windows.win_copy:
         src: '{{ windows_exporter_download_path }}/{{ windows_exporter_package_name }}'
-        dest: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
+        dest: '{{ ansible_facts.env.TEMP }}\{{ windows_exporter_package_name }}'
       check_mode: false
 
     - name: 'Set the Windows Exporter installation arguments (< 0.29.0)'
@@ -49,7 +49,7 @@
 
     - name: 'Install the Windows Exporter package'
       ansible.windows.win_package:
-        path: '{{ ansible_env.TEMP }}\{{ windows_exporter_package_name }}'
+        path: '{{ ansible_facts.env.TEMP }}\{{ windows_exporter_package_name }}'
         arguments: '{{ __windows_exporter_install_arguments }}'
         state: 'present'
       when: not ansible_check_mode
