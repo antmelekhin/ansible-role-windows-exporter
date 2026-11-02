@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.3](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.3.2...v3.3.3) (2026-11-02)
+
+
+### Fixes
+
+* use newer style ansible facts in web_config.yml.j2 ([4d4fdd7](https://github.com/antmelekhin/ansible-role-windows-exporter/commit/4d4fdd72c13d3383f4ac4a4155580a0387d8d0c9))
+
 ## [3.3.2](https://github.com/antmelekhin/ansible-role-windows-exporter/compare/v3.3.1...v3.3.2) (2026-10-31)
 
 
