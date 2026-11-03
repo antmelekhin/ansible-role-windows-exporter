@@ -9,7 +9,7 @@ argument_specs:
       windows_exporter_version:
         type: 'str'
         description: 'The version of Windows Exporter to install.'
-        default: '0.32.0'
+        default: '0.32.1'
       windows_exporter_package_name:
         type: 'str'
         description: 'Windows Exporter package name.'
